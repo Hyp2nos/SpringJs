@@ -20,7 +20,6 @@ public class Product {
 	private String name;
 	@OneToMany
 	@Cascade(CascadeType.ALL)
-	
 	private List<Transaction> transactionList;
 	
 	public Long getStorageAmount() {

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/menu.css" />
+    <link rel="stylesheet" href="css/productPage.css" />
+    <link rel="stylesheet" href="css/productList.css" />
+  </head>
+  <body>
+    <nav>
+      <label class="Logo" for="Logo">StoreManagement</label>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="productList.html">ProductList</a></li>
+        <li><a href="product.html" class="active">New Product</a></li>
+      </ul>
+    </nav>
+    <div class="container">
+      <form  class="productForm">
+        <div id="successMessage" class="successMessage"></div>
+        <div class="wrapper">
+          <div class="inputs">
+            <div class="inputField">
+              <label for="ProductId">Id:</label>
+              <input type="text" name="ProductId" id="ProductId" disabled />
+            </div>
+            <div class="inputField">
+              <label for="ProductName">Name:</label>
+              <input type="text" name="ProductName" id="ProductName" /><span
+                class="required"
+                >*</span
+              >
+            </div>
+          </div>
+          <div class="btnForm">
+            <input type="button" value="Save" class="btn" onclick="saveProduct()"/>      
+            <input type="button" value="Trans" class="btn modal-btn" />
+          </div>
+        </div>
+      </form>
+       <div id="TableHolder"></div>
+    </div>
+
+    <div class="container">
+        <div class="modal-bg">
+        <div class="modal">
+            <h3>Transaction</h3>
+            <label for="amount">QTY : </label>
+            <input type="number" id="transactionQty" name="amount">
+            <button onclick="SaveTransaction()">Add</button>
+            <span class="modal-close">X</span>
+          </div>
+        </div>
+    </div>
+
+   
+
+    <script src="js/product.js"></script>
+  </body>
+</html>

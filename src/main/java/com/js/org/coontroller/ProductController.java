@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.js.org.model.Product;
+import com.js.org.model.Transaction;
 import com.js.org.repository.ProductRepo;
 
 @RestController
@@ -34,6 +35,18 @@ public class ProductController {
 	
 	@PostMapping("/product")
 	public Product saveProduct(@RequestBody Product product) {
+		
+		if (product.getId() != null) {
+			Optional<Product> prod =productRepo.findById(product.getId());
+			List<Transaction> transactionList = prod.get().getTransactionList();
+			for (Transaction transaction : product.getTransactionList()) {
+				if (transaction.getId()==null) {
+					transactionList.add(transaction);
+				}
+			}
+			product.setTransactionList(transactionList);
+		}
+			
 		return productRepo.save(product);
 	}
 	
